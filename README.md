@@ -3,7 +3,7 @@ author:   Sebastian Zug; André Dietrich
 
 email:    sebastian.zug@informatik.tu-freiberg.de
 
-version:  0.0.1
+version:  0.0.2
 
 language: de
 
@@ -15,7 +15,7 @@ icon:     https://media.aubi-plus.com/institution/thumbnail/3f3de48-technische-u
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaPlayground/Edrys-Demo-2023/main/README.md#1)
 
-# Digitale Laboratore als Open Educational Resources
+# Modulare und konfigurierbare Remote-Labs mit Edryss
 <h2>Challenges and Solutions </h2>
 
 <div style="width: 46%; float: left">
