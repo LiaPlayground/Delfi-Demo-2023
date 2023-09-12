@@ -5,24 +5,15 @@ email:    sebastian.zug@informatik.tu-freiberg.de
 
 version:  0.0.1
 
-language: en
+language: de
 
-narrator: UK English Female
+narrator: Deutsch Female
 
 icon:     https://media.aubi-plus.com/institution/thumbnail/3f3de48-technische-universitaet-bergakademie-freiberg-logo.jpg
 
-link:     style.css
-
-import:   https://raw.githubusercontent.com/liaTemplates/ABCjs/main/README.md
-          https://raw.githubusercontent.com/liaTemplates/AVR8js/main/README.md
-          https://raw.githubusercontent.com/liaTemplates/TextAnalysis/main/README.md
-          https://raw.githubusercontent.com/LiaScript/CodeRunner/master/README.md
 -->
 
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/Cross-Lab-Project/presentations/main/GeCon_2023_Keynote/CrossLab_GeCon2023.md)
-
-
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/Cross-Lab-Project/presentations/main/GeCon_2022_Adaptability/CrossLab_GeCon2022.md)
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaPlayground/Edrys-Demo-2023/main/README.md#1)
 
 # Digitale Laboratore als Open Educational Resources
 <h2>Challenges and Solutions </h2>
@@ -122,7 +113,7 @@ CROSS ---+                   |              |   |              |   |            
 
 ## Edrys - Konzept und Implementierung
 
-     {{1-2}}
+     {{0-1}}
 <section>
 
 > _Divide and Conquer_ Differenzierte Module statt atomarer Impementierungen
@@ -155,7 +146,7 @@ CROSS ---+                   |              |   |              |   |            
 </section>
 
 
-    {1-2}
+    {{1-2}}
 <section>
 
 ```ascii
@@ -189,6 +180,11 @@ CROSS ---+                   |              |   |              |   |            
                                      +-------------+
 ```
 
+<!-- class="reference" -->
+> __Reference:__
+> OER and Digital Laboratories,
+> GeCon 2023
+> [Link](https://liascript.github.io/course/?https://raw.githubusercontent.com/Cross-Lab-Project/presentations/main/GeCon_2023_Keynote/CrossLab_GeCon2023.md)
 
 </section>
 
@@ -282,6 +278,6 @@ modules:
 > Presentation materials:
 >
 > + https://github.com/LiaPlayground/Edrys-Demo-2023/
-> + 
+> + https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaPlayground/Edrys-Demo-2023/main/README.md#1
 
 
