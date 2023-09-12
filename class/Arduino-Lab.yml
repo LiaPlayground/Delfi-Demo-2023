@@ -1,0 +1,160 @@
+id: aGLUUb8kSI9yFmY6GYcLx
+createdBy: andredietrich@web.de
+dateCreated: 1689064662293
+name: Real Labs
+meta:
+  logo: >-
+    https://raw.githubusercontent.com/TUBAF-IfI-LiaScript/VL_EAVD/master/excercise/images/excercise_04.png
+  description: >-
+    Die Studierenden setzen eine Anwendung um, die zwei existierende Klassen für
+    die Verwendung von peripheren Bauteilen - Ultraschallsensor und LCD-Display
+    - um. Im Ergebnis steht eine Applikation die kontinuierlich die Distanz zu
+    einem Hindernis vermisst. Die Daten werden zudem über die Serielle
+    Schnittstelle ausgegeben und analysiert.
+  selfAssign: true
+members:
+  teacher:
+    - andredietrich@web.de
+    - sebastian.zug@informatik.tu-freiberg.de
+  student:
+    - passe.partout@web.de
+modules:
+  - url: https://edrys-org.github.io/module-liascript/
+    config:
+      course: >-
+        https://raw.githubusercontent.com/TUBAF-IfI-LiaScript/VL_EAVD/master/excercise/04_OOP_stud.md
+    showInCustom: Lobby
+    width: full
+    height: tall
+  - url: https://cross-lab-project.github.io/edrys_module-station-stream/index.html
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: station
+    width: full
+    height: tall
+  - url: https://cross-lab-project.github.io/edrys_module-editor/index.html
+    config:
+      editorText: |
+        #include <LiquidCrystal.h>
+        #include <NewPing.h>
+
+        const int triggerPin = 51;   
+        const int echoPin = 53;     
+        const int maxDistance = 400;
+        const int ledPin =  13;
+
+        //Pin assignments for SainSmart LCD Keypad Shield
+        LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+        NewPing sonar(triggerPin, echoPin, maxDistance);
+
+        void setup() 
+        { 
+          lcd.begin(16, 2);
+        }
+
+        void loop() 
+        { 
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print(sonar.ping_cm());
+          lcd.setCursor(4, 0);
+          lcd.print("cm");
+          delay(200);
+        }
+      runCommand: execute
+      language: cpp
+      theme: light
+    showInCustom: station
+    width: full
+    height: tall
+    stationConfig:
+      editorText: |
+        #include <LiquidCrystal.h>
+        #include <NewPing.h>
+
+        const int triggerPin = 51;   
+        const int echoPin = 53;     
+        const int maxDistance = 400;
+        const int ledPin =  13;
+
+        //Pin assignments for SainSmart LCD Keypad Shield
+        LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+        NewPing sonar(triggerPin, echoPin, maxDistance);
+
+        void setup() 
+        { 
+          lcd.begin(16, 2);
+        }
+
+        void loop() 
+        { 
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print(sonar.ping_cm());
+          lcd.setCursor(4, 0);
+          lcd.print("cm");
+          delay(200);
+        }
+      runCommand: execute
+      language: cpp
+      theme: light
+  - url: https://cross-lab-project.github.io/edrys_module-pyxtermjs/index.html
+    stationConfig:
+      server: http://localhost:5000/pty
+      execute: execute
+      script: |
+        echo $CODE | base64 --decode > Hello.ino
+        arduino-cli sketch new Hello
+        olddir=$(pwd)
+        mv Hello.ino Hello
+        cd Hello
+        arduino-cli board attach -p /dev/ttyACM0
+        arduino-cli compile
+        arduino-cli upload
+        cd $olddir
+        arduino-cli monitor -p /dev/ttyACM0
+      enable:
+        teacher: true
+        student: true
+    showInCustom: station
+    width: full
+    height: tall
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    studentConfig: |
+      # Viel Erfolg
+    teacherConfig: |
+      # Aufgabenlösung
+
+      ``` cpp
+
+      #include <LiquidCrystal.h>
+      #include <NewPing.h>
+
+      const int triggerPin = 51;
+      const int echoPin = 53;
+      const int maxDistance = 400;
+      const int ledPin =  13;
+
+      NewPing sonar(triggerPin, echoPin, maxDistance);
+
+      LiquidCrystal lcd(8, 9, 4, 5, 6, 7); 
+
+      void setup()  { 
+        lcd.begin(16, 2);
+      }
+
+      void loop()  { 
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(sonar.ping_cm());
+        lcd.setCursor(4, 0);
+        lcd.print("cm");
+        delay(200);
+      }
+
+      ```
+      
+    showInCustom: station
+    width: full
+    height: tall

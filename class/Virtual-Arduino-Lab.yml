@@ -1,0 +1,469 @@
+id: StaJZEh3IrvPqY0WYuGXk
+createdBy: andredietrich@web.de
+dateCreated: 1689064431903
+name: Virtual Labs
+meta:
+  logo: https://www.electronics-lab.com/wp-content/uploads/2020/09/Locker.gif
+  description: >-
+    Entdecke die faszinierende Welt des Arduino! In diesem Kurs lernst du die
+    Grundlagen der Arduino-Programmierung und entwickelst praktische
+    Fähigkeiten, um interaktive Elektronikprojekte umzusetzen. Von der Steuerung
+    von LEDs und Tastern bis hin zu künstlerischen Effekten mit externen
+    Bibliotheken - entfessele deine Kreativität und erschaffe einzigartige
+    Arduino-Anwendungen!
+  selfAssign: true
+members:
+  teacher:
+    - teacher@web.de
+    - andredietrich@web.de
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Virtual Lab
+
+      Willkommen zu diesem kurzen Arduino-Kurs! In diesem Kurs werden wir uns
+      mit den Grundlagen von Arduino beschäftigen. Arduino ist eine
+      Open-Source-Plattform, die es ermöglicht, interaktive Elektronikprojekte
+      zu erstellen. Es besteht aus einer einfachen Hardware, einem
+      Mikrocontroller, und einer Entwicklungsumgebung, die auf C/C++ basiert.
+      Arduino bietet eine einfache und zugängliche Möglichkeit, elektronische
+      Schaltungen zu entwerfen und zu programmieren, ohne umfangreiche
+      Elektronik- oder Programmierkenntnisse zu benötigen.
+
+
+      # Was ist Arduino?
+
+
+      Arduino ist eine Plattform, die aus einer Hardwarekomponente und einer
+      Softwareentwicklungsumgebung besteht. Die Hardware besteht aus einem
+      Mikrocontroller, der auf einem einfachen Board montiert ist. Der
+      Mikrocontroller ist das Gehirn des Arduino und kann Sensoren, Aktoren und
+      andere elektronische Komponenten steuern. Die Softwareentwicklungsumgebung
+      ermöglicht es uns, Programme für den Mikrocontroller zu schreiben und sie
+      auf das Arduino-Board hochzuladen.
+
+
+      Die Arduino-Programmierung basiert auf der C-ähnlichen Programmiersprache,
+      die speziell für Arduino entwickelt wurde. Die Syntax ähnelt der von C und
+      C++, ist jedoch einfacher und leichter verständlich. In diesem Kurs werden
+      wir uns auf die grundlegenden Konzepte und Syntaxelemente konzentrieren,
+      um Ihnen einen guten Einstieg in die Arduino-Programmierung zu
+      ermöglichen.
+    showInCustom: Lobby
+    width: full
+    height: tall
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Aufgabe: Serielle Kommunikation mit Serial.print und Serial.read
+
+      Schreibe einen Arduino-Code, der die serielle Kommunikation verwendet, um
+      Befehle über die Konsole zu empfangen und entsprechende Ausgaben zu
+      generieren. Implementiere die Funktionen `Serial.print()` und
+      `Serial.read()`.
+
+      ## Schritte:
+
+
+      1. Initialisiere die serielle Kommunikation in der `setup()`-Funktion mit
+      einer Baudrate von 9600.
+
+      2. Schreibe eine Schleife (`loop()`), die kontinuierlich die serielle
+      Schnittstelle überprüft, ob Daten verfügbar sind.
+
+      3. Innerhalb der Schleife überprüfe mit `Serial.available()`, ob Daten von
+      der Konsole vorhanden sind.
+
+      4. Wenn Daten verfügbar sind, verwende `Serial.readString()` zum Lesen der
+      empfangenen Daten in eine String-Variable.
+
+      5. Vergleiche den gelesenen String mit dem Wert "send" mit
+      `str.equals("send")`.
+
+      6. Wenn der String "send" entspricht, gib mit `Serial.println()` die
+      Nachricht "identified" aus.
+
+      7. Andernfalls, wenn der String nicht "send" ist, gib mit
+      `Serial.println()` die Nachricht "unknown" aus.
+
+      8. Führe die Schleife fort, um weitere Befehle zu empfangen und
+      auszuführen.
+
+      ## Codevorlage:
+
+      ```c
+
+      void setup() {
+        Serial.begin(9600);
+      }
+
+      void loop() {
+        while (Serial.available() > 0 ) {
+          String str = Serial.readString();
+
+          if (str.equals("send")) {
+            Serial.println("identified");
+          } else {
+            Serial.println("unknown");
+          }
+        }
+      }
+
+      ```
+
+
+
+      Ziel dieser Aufgabe ist es, dass der Arduino auf den Befehl `"send"`
+      reagiert, indem er `"identified"` ausgibt. Andernfalls soll der Arduino
+      `"unknown"` ausgeben, wenn ein anderer Befehl empfangen wird.
+
+      Experimentiere mit dem Code, indem du die serielle Konsole in der
+      Arduino-IDE öffnest und verschiedene Befehle eingibst. Überprüfe, ob der
+      Arduino die erwarteten Ausgaben generiert.
+
+
+      Viel Spaß beim Entwickeln und Lernen!
+    showInCustom: Room 1
+    width: full
+    height: tall
+  - url: https://cross-lab-project.github.io/edrys_module-editor/index.html
+    showInCustom: Room 1
+    width: full
+    height: tall
+    config:
+      editorText: |
+        void setup() {
+          Serial.begin(9600);
+        }
+
+        void loop() {
+          while (Serial.available() > 0 ) {
+
+            String str = Serial.readString();
+
+            if (str.equals("send")) {
+               Serial.println("identified");
+            } else {
+               Serial.println("unknown");
+            }
+          }
+        }
+      runCommand: execute
+      language: cpp
+      theme: light
+  - url: https://cross-lab-project.github.io/edrys_module-avr8js/index.html
+    showInCustom: Room 1
+    width: full
+    height: tall
+    config:
+      modules: <span id='simulation-time'></span>
+      execute: execute
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    showInCustom: Room 2
+    width: full
+    height: tall
+    config: >
+      # Aufgabe: LED-Steuerung mit Tastern
+
+
+      Schreibe einen Arduino-Code, der zwei Taster verwendet, um die Zustände
+      von LEDs zu steuern. Implementiere die Funktionen `digitalRead()`,
+      `digitalWrite()` und `delay()`.
+
+
+      ## Schritte:
+
+
+      1. Initialisiere die serielle Kommunikation in der `setup()`-Funktion mit
+      einer Baudrate von 115200.
+
+
+      2. Konfiguriere die Pins 2 und 3 als Eingänge mit Pull-up-Widerständen und
+      die Pins 11, 12 und 13 als Ausgänge für die LEDs.
+
+
+      3. Definiere eine Variable `i` als Zähler und setze sie auf 0.
+
+
+      4. Schreibe eine Schleife (`loop()`), die kontinuierlich den Zustand der
+      Taster ausliest und die LEDs entsprechend steuert.
+
+
+      5. Lese den Zustand des grünen Tasters (`digitalRead(2)`) in eine Variable
+      `green` ein.
+
+
+      6. Lese den Zustand des roten Tasters (`digitalRead(3)`) in eine Variable
+      `red` ein.
+
+
+      7. Gib über die serielle Kommunikation den Wert von `i` aus.
+
+
+      8. Steuere die grüne LED (Pin 11) entsprechend dem Zustand des grünen
+      Tasters (`digitalWrite(11, green)`).
+
+
+      9. Steuere die rote LED (Pin 13) entsprechend dem Zustand des roten
+      Tasters (`digitalWrite(13, red)`).
+
+
+      10. Verzögere die Ausführung für 250 Millisekunden (`delay(250)`).
+
+
+      11. Erhöhe den Wert von `i` um 1 (`i += 1`).
+
+
+      12. Steuere die gelbe LED (Pin 12) basierend auf dem Restwert von `i`
+      (`digitalWrite(12, i % 2)`).
+
+
+
+      ## Codevorlage:
+
+
+      ```c
+
+
+      void setup() {
+        Serial.begin(115200);
+        pinMode(2, INPUT_PULLUP);
+        pinMode(3, INPUT_PULLUP);
+        pinMode(11, OUTPUT);
+        pinMode(12, OUTPUT);
+        pinMode(13, OUTPUT);
+      }
+
+
+      int i = 0;
+
+      void loop() {
+        bool green = digitalRead(2);
+        bool red   = digitalRead(3);
+        Serial.print("LED: ");
+        Serial.println(i);
+
+        digitalWrite(11, green);
+        digitalWrite(13, red);
+        delay(250);
+
+        i += 1;
+
+        digitalWrite(12, i % 2);
+      }
+
+      ```
+
+
+
+      Ziel dieser Aufgabe ist es, dass die grüne LED (Pin 11) durch den grünen
+      Taster und die rote LED (Pin 13) durch den roten Taster gesteuert werden.
+      Die gelbe LED (Pin 12) soll basierend auf einem Zähler abwechselnd ein-
+      und ausgeschaltet werden.
+
+
+
+      Experimentiere mit dem Code, indem du die Taster drückst und ihre
+      Auswirkungen auf die LEDs beobachtest. Überprüfe auch die serielle
+      Ausgabe, um den Wert des Zählers `i` zu sehen.
+
+
+
+      Viel Spaß beim Entwickeln und Lernen!
+  - url: https://cross-lab-project.github.io/edrys_module-editor/index.html
+    showInCustom: Room 2
+    width: full
+    height: tall
+    config:
+      editorText: |
+        void setup() {
+          Serial.begin(115200);
+          pinMode(2, INPUT_PULLUP);
+          pinMode(3, INPUT_PULLUP);
+          pinMode(11, OUTPUT);
+          pinMode(12, OUTPUT);
+          pinMode(13, OUTPUT);
+        }
+
+        int i = 0;
+        void loop() {
+          bool green = digitalRead(2);
+          bool red   = digitalRead(3);
+          Serial.print("LED: ");
+          Serial.println(i);
+
+          digitalWrite(11, green);
+          digitalWrite(13, red);
+          delay(250);
+
+          i += 1;
+
+          digitalWrite(12, i % 2);
+        }
+      runCommand: execute
+      language: cpp
+      theme: light
+  - url: https://cross-lab-project.github.io/edrys_module-avr8js/index.html
+    showInCustom: Room 2
+    width: full
+    height: tall
+    config:
+      modules: |
+        <wokwi-pushbutton color="green" pin="2" ></wokwi-pushbutton>
+        <wokwi-led        color="green" pin="11"></wokwi-led>
+        <wokwi-led        color="blue"  pin="12"></wokwi-led>
+        <wokwi-led        color="red"   pin="13"></wokwi-led>
+        <wokwi-pushbutton color="red"   pin="3" ></wokwi-pushbutton>
+        <span id='simulation-time'></span>
+      execute: execute
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    showInCustom: Room 3
+    width: full
+    height: tall
+    config: >
+      # Aufgabe: Künstlerische LED-Matrix mit der FastLED-Bibliothek
+
+      Schreibe einen Arduino-Code, der die FastLED-Bibliothek verwendet, um eine
+      künstlerische LED-Matrix zu erstellen. Die LEDs sollen in schönen Farben
+      leuchten. 
+
+      ## Schritte:
+
+      1. Importiere die FastLED-Bibliothek am Anfang des Codes (`#include
+      "FastLED.h"`).
+
+      2. Definiere die Größe der Matrix mit `NUM_ROWS` und `NUM_COLS` (Anzahl
+      der Zeilen und Spalten).
+
+      3. Definiere den Pin, an dem die LEDs angeschlossen sind, mit `DATA_PIN`
+      (hier Pin 3).
+
+      4. Definiere die Helligkeit der LEDs mit `BRIGHTNESS` (Wert zwischen 0 und
+      255).
+
+      5. Definiere die Anzahl der LEDs insgesamt mit `NUM_LEDS` (berechnet als
+      `NUM_ROWS * NUM_COLS`).
+
+      6. Deklariere ein Array `leds` vom Typ `CRGB` für die LED-Farbwerte.
+
+      7. In der `setup()`-Funktion füge die LEDs zur FastLED-Bibliothek hinzu
+      mit `FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS)`.
+
+      8. Setze die Helligkeit der LEDs mit `FastLED.setBrightness(BRIGHTNESS)`.
+
+      9. Deklariere eine Zählervariable `counter` und setze sie auf 0.
+
+      10. In der `loop()`-Funktion durchlaufe eine Schleife, die für jede Zeile
+      (`row`) und Spalte (`col`) der Matrix ausgeführt wird.
+
+      11. Berechne den Farbwert (`delta`) basierend auf der aktuellen Zeile und
+      Spalte der LED-Matrix.
+
+      12. Setze den Farbwert für die entsprechende LED im `leds`-Array mit
+      `leds[row * NUM_COLS + col] = CHSV(delta * 4 + counter, 255, 255)`.
+
+      13. Zeige die aktualisierten LED-Farbwerte mit `FastLED.show()`.
+
+      14. Führe eine kurze Verzögerung von 5 Millisekunden aus mit `delay(5)`.
+
+      15. Erhöhe den Zähler `counter` um 1 (`counter++`).
+
+      ## Codevorlage:
+
+      ```c #include "FastLED.h"
+
+      // Matrix size #define NUM_ROWS 9 #define NUM_COLS 9
+
+      // LEDs pin #define DATA_PIN 3
+
+      // LED brightness #define BRIGHTNESS 80
+
+      #define NUM_LEDS NUM_ROWS * NUM_COLS
+
+      // Define the array of leds CRGB leds[NUM_LEDS];
+
+      void setup() {
+        FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+        FastLED.setBrightness(BRIGHTNESS);
+      }
+
+      int counter = 0;
+
+      void loop() {
+        for (byte row = 0; row < NUM_ROWS; row++) {
+          for (byte col = 0; col < NUM_COLS; col++) {
+            int delta = abs(NUM_ROWS - row * 2) + abs(NUM_COLS - col * 2);
+            leds[row * NUM_COLS + col] = CHSV(delta * 4 + counter, 255, 255);
+          }
+        }
+
+        FastLED.show();
+        delay(5);
+        counter++;
+      } 
+
+      ```
+
+      In dieser Aufgabe wird die FastLED-Bibliothek verwendet, um eine
+      LED-Matrix mit schönen Farben zu steuern. Die Farben werden durch die
+      Helligkeit der LEDs und den Wert des `counter` bestimmt. Experimentiere
+      mit verschiedenen Werten für `BRIGHTNESS` und beobachte, wie sich die
+      Darstellung der LED-Matrix ändert.
+
+
+      Viel Spaß beim Programmieren und Erstellen von künstlerischen
+      LED-Effekten!
+  - url: https://cross-lab-project.github.io/edrys_module-editor/index.html
+    showInCustom: Room 3
+    width: full
+    height: tall
+    config:
+      editorText: |
+        #include "FastLED.h"
+
+        // Matrix size
+        #define NUM_ROWS 9
+        #define NUM_COLS 9
+
+        // LEDs pin
+        #define DATA_PIN 3
+
+        // LED brightness
+        #define BRIGHTNESS 180
+
+        #define NUM_LEDS NUM_ROWS * NUM_COLS
+
+        // Define the array of leds
+        CRGB leds[NUM_LEDS];
+
+        void setup() {
+          FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+          FastLED.setBrightness(BRIGHTNESS);
+        }
+
+        int counter = 0;
+        void loop() {
+          for (byte row = 0; row < NUM_ROWS; row++) {
+            for (byte col = 0; col < NUM_COLS; col++) {
+              int delta = abs(NUM_ROWS - row * 2) + abs(NUM_COLS - col * 2);
+              leds[row * NUM_COLS + col] = CHSV(delta * 4 + counter, 255, 255);
+            }
+          }
+          FastLED.show();
+          delay(5);
+          counter++;
+        }
+      runCommand: execute
+      language: cpp
+      theme: light
+  - url: https://cross-lab-project.github.io/edrys_module-avr8js/index.html
+    showInCustom: Room 3
+    width: full
+    height: tall
+    config:
+      modules: >
+        <wokwi-neopixel-matrix pin="3" cols="9"
+        rows="9"></wokwi-neopixel-matrix>
+
+        <span id='simulation-time'></span>
+      execute: execute
