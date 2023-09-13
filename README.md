@@ -30,8 +30,6 @@ TU Bergakademie Freiberg
 
 ![partner_map](https://github.com/Cross-Lab-Project/presentations/blob/main/GeCon_2022_Adaptability/Partners.png?raw=true)<!-- style="width: 50%; float: right" -->
 
-<h5>Delfi 2023, Aachen, 12. September 2023</h5>
-
 
 ## Motivation
 
